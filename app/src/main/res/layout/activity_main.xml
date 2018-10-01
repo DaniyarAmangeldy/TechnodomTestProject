@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        >
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:scrimAnimationDuration="500"
+            app:contentScrim="@android:color/white"
+            >
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_collapseMode="parallax"
+                />
+
+            <com.viewpagerindicator.CirclePageIndicator
+                android:id="@+id/view_pager_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp"
+                app:fillColor="@android:color/black"
+                app:strokeColor="@android:color/darker_gray"
+                app:radius="5dp"
+                android:layout_gravity="bottom|start"
+                />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="pin"
+                />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/text_article"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Артикул: 33013"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Notebook Apple MacBook Pro 13 Retina 512 (MF841RS/A)"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/text_article"
+                app:layout_constraintTop_toBottomOf="@id/text_article"
+                />
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/rating_bar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:rating="3"
+                android:stepSize="1.0"
+                app:layout_constraintStart_toStartOf="@id/text_title"
+                app:layout_constraintTop_toBottomOf="@id/text_title"
+                />
+
+            <TextView
+                android:id="@+id/text_feedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="648 отзывов"
+                android:textColor="@color/color_link"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_title"
+                />
+
+            <View
+                android:id="@+id/divider_title"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/background_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_feedback"
+                />
+
+            <TextView
+                android:id="@+id/text_old_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="749 990 ₸"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_title"
+                />
+
+            <TextView
+                android:id="@+id/text_new_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="699 990 ₸"
+                android:textColor="?colorAccent"
+                android:textSize="28sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_old_price"
+                />
+
+            <TextView
+                android:id="@+id/text_credit_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:text="В кредит"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/text_old_price"
+                />
+
+            <TextView
+                android:id="@+id/text_credit_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="58 333 ₸"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/text_new_price"
+                app:layout_constraintStart_toStartOf="@+id/text_credit_placeholder"
+                />
+
+            <TextView
+                android:id="@+id/text_credit_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="16dp"
+                android:text="в месяц"
+                android:textSize="14sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/text_new_price"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/text_credit_price"
+                />
+
+            <RadioGroup
+                android:id="@+id/radio_group_credit_period"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_new_price"
+                >
+
+                <kz.technodom.technodomsample.TextRadioButton
+                    android:id="@+id/credit_period_radio_3month"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:text="3 мес"
+                    android:gravity="center_horizontal"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="18sp"
+                    />
+                <kz.technodom.technodomsample.TextRadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="18sp"
+                    android:gravity="center_horizontal"
+                    android:button="@null"
+                    android:text="6 мес"
+                    />
+
+                <kz.technodom.technodomsample.TextRadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="18sp"
+                    android:gravity="center_horizontal"
+                    android:button="@null"
+                    android:text="9 мес"
+                    />
+
+                <kz.technodom.technodomsample.TextRadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="18sp"
+                    android:gravity="center_horizontal"
+                    android:button="@null"
+                    android:text="12 мес"
+                    />
+
+                <kz.technodom.technodomsample.TextRadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="18sp"
+                    android:gravity="center_horizontal"
+                    android:button="@null"
+                    android:text="24 мес"
+                    />
+            </RadioGroup>
+
+            <View
+                android:id="@+id/divider_price"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/background_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radio_group_credit_period"
+                />
+
+            <TextView
+                android:id="@+id/text_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="13.3` 2560x1600 | Intel Core i5 5287U | RAM 8 | SSD 512 | Mac OS X | Вес 1,58 кг"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_price"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_description_more"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_background_blue_corner"
+                android:foreground="?selectableItemBackground"
+                android:text="Инструкция к товару"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:textColor="@color/color_link"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_description"
+                />
+
+            <View
+                android:id="@+id/divider_description"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/background_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_description_more"
+                />
+
+            <TextView
+                android:id="@+id/text_config_block_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Доступные конфигурации"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_description"
+                />
+
+            <TextView
+                android:id="@+id/text_config_display_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Дисплей, дюйм:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_config_block_title"
+                />
+
+            <RadioGroup
+                android:id="@+id/radio_group_config_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_config_display_title"
+                >
+
+            <kz.technodom.technodomsample.ConfigurationRadioButton
+                android:id="@+id/radio_config_display_13inch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13’"
+                tools:button="@null"
+                />
+
+            <kz.technodom.technodomsample.ConfigurationRadioButton
+                android:id="@+id/radio_config_display_15inch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="15’"
+                tools:button="@null"
+                />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/text_config_memory_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Память, ГБ:"
+                app:layout_constraintStart_toEndOf="@id/text_config_display_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_config_block_title"
+                />
+
+            <RadioGroup
+                android:id="@+id/radio_group_config_memory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/text_config_memory_title"
+                app:layout_constraintTop_toBottomOf="@+id/text_config_memory_title"
+                >
+
+                <kz.technodom.technodomsample.ConfigurationRadioButton
+                    android:id="@+id/radio_config_memory_128"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="128"
+                    tools:button="@null"
+                    />
+
+                <kz.technodom.technodomsample.ConfigurationRadioButton
+                    android:id="@+id/radio_config_memory_512"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="512"
+                    tools:button="@null"
+                    />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/text_config_color_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Цвет:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radio_group_config_display"
+                />
+
+            <RadioGroup
+                android:id="@+id/radio_group_config_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/text_config_color_title"
+                app:layout_constraintTop_toBottomOf="@+id/text_config_color_title"
+                >
+
+                <kz.technodom.technodomsample.ConfigurationColorRadioButton
+                    android:id="@+id/radio_config_color_gray"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:color="@android:color/darker_gray"
+                    />
+
+                <kz.technodom.technodomsample.ConfigurationColorRadioButton
+                    android:id="@+id/radio_config_color_red"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="16dp"
+                    app:color="@android:color/holo_red_dark"
+                    />
+
+                <kz.technodom.technodomsample.ConfigurationColorRadioButton
+                    android:id="@+id/radio_config_color_blue"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="16dp"
+                    app:color="@android:color/holo_blue_dark"
+                    />
+            </RadioGroup>
+
+            <View
+                android:id="@+id/divider_config"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/background_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radio_group_config_color"
+                />
+
+            <ImageView
+                android:id="@+id/image_stock"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/image_stock_price"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_config"
+                />
+
+            <TextView
+                android:id="@+id/text_stock_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Внимание акция!"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toEndOf="@id/image_stock"
+                app:layout_constraintTop_toTopOf="@+id/image_stock"
+                />
+
+            <TextView
+                android:id="@+id/text_stock_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="16dp"
+                android:text="Если вы купите данный товар, то в дополение к товару получите в подарок аксессуары! Предложение действуюет до 22 сентября 2017 г."
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/image_stock"
+                app:layout_constraintTop_toTopOf="@+id/text_stock_title"
+                />
+
+            <View
+                android:id="@+id/line_stock"
+                android:layout_width="0dp"
+                android:layout_height=".5dp"
+                android:background="@color/background_gray"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_stock_description"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_stock_more"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:textColor="@color/color_link"
+                android:text="Посмотреть предложение"
+                android:textAllCaps="false"
+                android:background="@android:color/white"
+                android:foreground="?selectableItemBackground"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line_stock"
+                />
+
+            <View
+                android:id="@+id/divider_stock"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:background="@color/background_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_stock_more"
+                />
+
+            <ImageView
+                android:id="@+id/image_price_guarantee"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/image_stock_price"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_stock"
+                />
+
+            <TextView
+                android:id="@+id/text_price_guarantee_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="У конкурента дешевле?"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toEndOf="@id/image_price_guarantee"
+                app:layout_constraintTop_toTopOf="@+id/image_price_guarantee"
+                />
+
+            <TextView
+                android:id="@+id/text_price_guarantee_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="16dp"
+                android:text="Отправьте ссылку на данный товар, и получайте 110% компенсации разницы в цене или покупайте выбранный товар по цене конкурента. "
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/image_price_guarantee"
+                app:layout_constraintTop_toTopOf="@+id/text_price_guarantee_title"
+                />
+
+            <View
+                android:id="@+id/line_guarantee_price"
+                android:layout_width="0dp"
+                android:layout_height=".5dp"
+                android:background="@color/background_gray"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_price_guarantee_description"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_price_guarantee_more"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:background="@android:color/white"
+                android:foreground="?selectableItemBackground"
+                android:textColor="@color/color_link"
+                android:text="Отправить"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line_guarantee_price"
+                />
+
+            <View
+                android:id="@+id/divider_price_guarantee"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:background="@color/background_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_price_guarantee_more"
+                />
+
+            <TextView
+                android:id="@+id/text_showcase_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Витрина"
+                android:textSize="24sp"
+                android:layout_marginTop="24dp"
+                android:textColor="@android:color/black"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_price_guarantee"
+                />
+
+            <ImageView
+                android:id="@+id/image_showcase"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:src="@drawable/image_showcase"
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_showcase_header"
+                />
+
+            <TextView
+                android:id="@+id/text_showcase_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Раскрывает таланты. С первого касания."
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/image_showcase"
+                />
+
+            <TextView
+                android:id="@+id/text_showcase_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:maxLines="5"
+                android:ellipsize="end"
+                android:text="Он стал ещё быстрее и мощнее. Легче и тоньше. У него самый яркий экран и лучшая цветопередача среди всех ноутбуков Mac. Впервые в его клавиатуру встроена стеклянная сенсорная панель Touch Bar с поддержкой жестов"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/image_showcase"
+                app:layout_constraintTop_toBottomOf="@+id/text_showcase_title"
+                />
+
+            <View
+                android:id="@+id/line_showcase"
+                android:layout_width="0dp"
+                android:layout_height=".5dp"
+                android:background="@color/background_gray"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_showcase_description"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_showcase_more"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="0dp"
+                android:padding="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_link"
+                android:background="@android:color/white"
+                android:foreground="?selectableItemBackground"
+                android:text="Подробнее"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line_showcase"
+                />
+
+            <View
+                android:id="@+id/divider_accessories"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:background="@color/background_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_showcase_more"
+                />
+
+            <TextView
+                android:id="@+id/text_accessories_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Аксессуары"
+                android:textSize="24sp"
+                android:layout_marginTop="24dp"
+                android:textColor="@android:color/black"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_accessories"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_accessories"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/text_accessories_header"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/list_accessories"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_bar_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/scroll_view"
+        app:layout_anchorGravity="bottom"
+        android:background="@android:color/white"
+        >
+
+        <View
+            android:id="@+id/bottom_bar_line"
+            android:layout_width="0dp"
+            android:layout_height=".5dp"
+            android:background="@color/background_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/bottom_bar_text_old_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:textSize="14sp"
+            android:text="749 990 ₸"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bottom_bar_line"
+            />
+
+        <TextView
+            android:id="@+id/bottom_bar_text_new_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="24sp"
+            android:text="699 990 ₸"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bottom_bar_text_old_price"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/bottom_bar_text_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="-20%"
+            android:textColor="@android:color/holo_red_dark"
+            app:layout_constraintStart_toEndOf="@id/bottom_bar_text_old_price"
+            app:layout_constraintEnd_toEndOf="@id/bottom_bar_text_new_price"
+            app:layout_constraintBaseline_toBaselineOf="@id/bottom_bar_text_old_price"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bottom_bar_button_credit"
+            style="@style/Base.Widget.AppCompat.Button.Small"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="В кредит"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:backgroundTint="?colorAccent"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_bar_text_new_price"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bottom_bar_button_buy"
+            style="@style/Base.Widget.AppCompat.Button.Small"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="Купить"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:backgroundTint="?colorAccent"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_bar_text_new_price"
+            app:layout_constraintEnd_toStartOf="@+id/bottom_bar_button_credit"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_more_horiz_white_36dp"
+        app:fabSize="normal"
+        app:layout_anchor="@id/appbar_layout"
+        app:layout_anchorGravity="bottom|end"
+        />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
